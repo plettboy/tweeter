@@ -1,0 +1,30 @@
+main button {
+  background-color: #4056A1;
+  font-family: 'Bungee';
+  color: white;
+  margin: 1em;
+}
+
+form textarea {
+  width: 100%;
+  border-style: none;
+  border-bottom-style: solid;
+  background-color: #f4f1ec;
+  border-width: thick;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.counter {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Bungee';
+  float: right;
+}
+
+.counterRed {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Bungee';
+  float: right;
+  color: red;
+}
