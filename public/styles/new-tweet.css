@@ -1,3 +1,7 @@
+html {
+  box-sizing: border-box;
+}
+
 main button {
   background-color: #4056A1;
   font-family: 'Bungee';
@@ -27,4 +31,57 @@ form textarea {
   font-family: 'Bungee';
   float: right;
   color: red;
+}
+
+section .tweetContainer {
+  border-style: solid;
+}
+
+section div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+article {
+  align-content: center;
+}
+
+article .profile {
+  background-color: #f4f1ec;
+  background-image: none;
+}
+
+
+article footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 3em;
+  padding-right: 1.5em;
+  align-content: start;
+  margin-top: -1em;
+}
+
+article .message {
+  display: flex;
+  justify-content: center;
+
+  padding-bottom: 2em;
+  border-bottom-style: solid;
+  margin: 2em;
+}
+
+.iconflag:hover {
+  color: orange;
+}
+
+.iconrefresh:hover {
+  color: orange;
+}
+
+.iconheart:hover {
+  color: orange;
 }
