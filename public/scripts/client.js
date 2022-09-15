@@ -18,6 +18,10 @@ $(document).ready(function() {
   const form = $(this)
   const data = form.serialize();
   console.log(data)
+  let dataLength = data.replace("text=", "").length;
+
+  
+  if (data !== "text=" && dataLength <= 140) {
   
   //this is the info that we want to post to our server
   $.ajax({ url: '/tweets', method: 'POST', data: data })
@@ -25,10 +29,25 @@ $(document).ready(function() {
   .then( ()=> {
     loadTweets();
   })
-
+  } else {
+    alert('invalid message')
   }
+}
   
-  
+
+
+//   $("#tweet-text").on('input', (event) => {
+//     //use jQuery to target the counter class
+//      const counter = $(".counter")
+// //assign currentCount to the event character length, through the DOM
+//     let currentCount = event.target.value.length;
+//     let totalChars = 140;
+//     let charInvalid = totalChars - currentCount;
+//     if (charInvalid == 140 || charInvalid === null) {
+//       alert("invalid entry");
+//     }
+
+//   })
   //use ajax
   
 
