@@ -4,9 +4,37 @@
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
+  //add an event listener for the form(step2) link it with this function so that on submit the data
+
+
+
+
 //insert
 $(document).ready(function() {
+
+  //on submit of the button
+  const onsubmit = function(event) {
+    event.preventDefault();
+  const form = $(this)
+  const data = form.serialize();
+  console.log(data)
   
+  //this is the info that we want to post to our server
+  $.ajax({ url: '/tweets', method: 'POST', data: data })
+  //refresh promise that when the submit is successful, refreshes and add the tweet.
+  .then( ()=> {
+    loadTweets();
+  })
+
+  }
+  
+  
+  //use ajax
+  
+
+  //add an event listener for the form(step1)
+  $('#tweeter-form').on('submit', onsubmit)
+  //this is basis of the new tweet we are generating
 const createTweetElement = function (tweet) {
   const newTweet = `<br><article class="tweetContainer">
         <div class="profile">
@@ -18,7 +46,7 @@ const createTweetElement = function (tweet) {
         </div>
         <p class="message">${tweet.content.text}</p>
         <footer>
-          <p class="date">${tweet.created_at}</p>
+          <p class="date">${timeago.format(tweet.created_at)}</p>
           <div class="iconlist">
             <p class="iconflag">
               <i class="fa-solid fa-flag"></i>&nbsp;&nbsp;&nbsp;
@@ -44,6 +72,17 @@ const renderTweets = function(tweets) {
   }
 };
 
+const loadTweets = function() {
+  console.log('test1')
+  $.ajax({
+    url: '/tweets',
+    method: "GET",
+    success: function(res) {
+      renderTweets(res);
+    }
+  }
+  )
+}
 
 // Test / driver code (temporary). Eventually will get this from the server.
 // Fake data taken from initial-tweets.json
@@ -78,7 +117,7 @@ const data = [
 // console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet);
 
-renderTweets(data)
+loadTweets();
 }
 )
 
