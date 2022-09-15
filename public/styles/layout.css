@@ -46,6 +46,25 @@ div#tweets-container {
   flex-direction: column;
 }
 
+.tweet-error {
+  width: 40%;
+  height: 5em;
+  background-color: red;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  margin-left: 30%;
+  border-radius: 25px;
+  font-weight: 800;
+}
+
+.tweet-error:hover {
+  box-shadow: 5.0px 10.1px 10.1px hsl(0deg 0% 0% / 0.34);
+}
+
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

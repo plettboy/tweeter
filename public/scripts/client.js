@@ -8,9 +8,18 @@
 
 
 
-
 //insert
 $(document).ready(function() {
+
+  //grab the error div and hide
+  $('.tweet-error').hide();
+
+//code to escape xxs strings, insert function into template literal when creating new string
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   //on submit of the button
   const onsubmit = function(event) {
@@ -19,6 +28,8 @@ $(document).ready(function() {
   const data = form.serialize();
   console.log(data)
   let dataLength = data.replace("text=", "").length;
+  let errormsg = "";
+  let errorDiv = $('.tweet-error')
 
   
   if (data !== "text=" && dataLength <= 140) {
@@ -29,8 +40,21 @@ $(document).ready(function() {
   .then( ()=> {
     loadTweets();
   })
+  } else if (dataLength >= 141) {
+    errormsg = "You have too many characters."
+
+
+  } else if (dataLength === 0) {
+    errormsg = "Input a proper tweet."
+
+  }
+  console.log(errormsg)
+  console.log(errorDiv)
+  if (errormsg) {
+    errorDiv.text(errormsg)
+    errorDiv.show()
   } else {
-    alert('invalid message')
+    errorDiv.hide()
   }
 }
   
@@ -63,7 +87,7 @@ const createTweetElement = function (tweet) {
         </div>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;${tweet.user.handle}</p>
         </div>
-        <p class="message">${tweet.content.text}</p>
+        <p class="message">${escape(tweet.content.text)}</p>
         <footer>
           <p class="date">${timeago.format(tweet.created_at)}</p>
           <div class="iconlist">
