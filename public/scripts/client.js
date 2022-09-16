@@ -61,21 +61,6 @@ $(document).ready(function() {
   
 
 
-//   $("#tweet-text").on('input', (event) => {
-//     //use jQuery to target the counter class
-//      const counter = $(".counter")
-// //assign currentCount to the event character length, through the DOM
-//     let currentCount = event.target.value.length;
-//     let totalChars = 140;
-//     let charInvalid = totalChars - currentCount;
-//     if (charInvalid == 140 || charInvalid === null) {
-//       alert("invalid entry");
-//     }
-
-//   })
-  //use ajax
-  
-
   //add an event listener for the form(step1)
   $('#tweeter-form').on('submit', onsubmit)
   //this is basis of the new tweet we are generating
