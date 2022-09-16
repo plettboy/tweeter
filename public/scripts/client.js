@@ -25,9 +25,11 @@ $(document).ready(function() {
   const onsubmit = function(event) {
     event.preventDefault();
   const form = $(this)
+  const textArea = $(form).find("textarea")
+  console.log(textArea.val().length)
   const data = form.serialize();
   console.log(data)
-  let dataLength = data.replace("text=", "").length;
+  let dataLength = (textArea.val().length)
   let errormsg = "";
   let errorDiv = $('.tweet-error')
 
@@ -48,8 +50,7 @@ $(document).ready(function() {
     errormsg = "Input a proper tweet."
 
   }
-  console.log(errormsg)
-  console.log(errorDiv)
+  //if errormsg is true, errorDiv(the div in the layout) prints the error message as texty
   if (errormsg) {
     errorDiv.text(errormsg)
     errorDiv.show()
@@ -116,7 +117,6 @@ const renderTweets = function(tweets) {
 };
 
 const loadTweets = function() {
-  console.log('test1')
   $.ajax({
     url: '/tweets',
     method: "GET",
@@ -154,11 +154,6 @@ const data = [
   }
 ]
 
-// const $tweet = createTweetElement(tweetData);
-
-// // Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $('#tweets-container').append($tweet);
 
 loadTweets();
 }
