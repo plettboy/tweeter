@@ -35,6 +35,7 @@ form textarea {
 
 section .tweetContainer {
   border-style: solid;
+
 }
 
 section div {
@@ -89,4 +90,8 @@ article .message {
 .profile img {
   padding-top: 1em;
   margin-left: -2em;
+}
+
+.tweetContainer:hover {
+  box-shadow: 0.5em 0.5em 0.5em royalblue;
 }
