@@ -89,6 +89,7 @@ const createTweetElement = function (tweet) {
         </footer>
       </article>`
       //Give this string to Jquery
+      $('#tweeter-form')[0].reset();
       return $(newTweet)
 }
 
